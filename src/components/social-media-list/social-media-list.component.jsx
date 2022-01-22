@@ -1,18 +1,22 @@
 import React from 'react';
 
-import SocialMediaItem from '../social-media/social-media.component';
+import SocialMedia from '../social-media/social-media.component';
+import { generateKey } from '../../util/utilities';
+import './social-media-list.styles.scss';
 
-const SocialMediaList = ({socialmedia}) => {
-   
-    console.log(socialmedia)
-	return(<div>
-        {
-            socialmedia.map(socialMediaItem => (
-                <SocialMediaItem  socialmediaitem={socialMediaItem}/>
-            ))
-        }
-
-    </div>)
+const SocialMediaList = ({ socialmedia }) => {
+	return (
+		<div className='social-media-container'>
+			<div className='social-media'>
+				{socialmedia.map(socialMediaItem => (
+					<SocialMedia
+						key={generateKey()}
+						socialmediaitem={socialMediaItem}
+					/>
+				))}
+			</div>
+		</div>
+	);
 };
 
 export default SocialMediaList;

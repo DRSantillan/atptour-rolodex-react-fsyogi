@@ -5,89 +5,85 @@ import twitterIcon from '../../assets/icons/twitter.png';
 import youtubeIcon from '../../assets/icons/youtube.png';
 import instagramIcon from '../../assets/icons/instagram.png';
 import topcourtIcon from '../../assets/icons/topcourt-logo.svg';
+import SocialMediaItem from './social-media-item.component';
+
+import { generateKey } from '../../util/utilities';
 const TOP_COURT_URL = 'https://www.topcourt.com/p/';
 const INSTAGRAM_URL = 'https://www.instagram.com/';
 const FACEBOOK_URL = 'https://www.facebook.com/';
 const TWITTER_URL = 'https://twitter.com/';
 const YOUTUBE_URL = 'https://www.youtube.com/';
 
-const SocialMediaItem = ({ socialmediaitem }) => {
-	console.log(socialmediaitem);
-	let item = null;
-	console.log(socialmediaitem['instagram']);
+const SocialMedia = ({ socialmediaitem }) => {
 	for (let key in socialmediaitem) {
 		if (socialmediaitem[key] !== null) {
 			switch (key) {
 				case 'instagram':
-					item = `${INSTAGRAM_URL}${socialmediaitem[key]}`;
 					return (
-						<a href={item} target='_blank' rel='noreferrer'>
-							<img
-								src={instagramIcon}
-								alt='FaceBook'
-								width='30px'
-							/>
-						</a>
+						<SocialMediaItem
+							key={generateKey()}
+							url={`${INSTAGRAM_URL}${socialmediaitem[key]}`}
+							icon={instagramIcon}
+							platform={key}
+						/>
 					);
-					break;
+
 				case 'twitter':
-					item = `${TWITTER_URL}${socialmediaitem[key]}`;
 					return (
-						<a href={item} target='_blank' rel='noreferrer'>
-							<img src={twitterIcon} alt='Twitter' width='30px' />
-						</a>
+						<SocialMediaItem
+							key={generateKey()}
+							url={`${TWITTER_URL}${socialmediaitem[key]}`}
+							icon={twitterIcon}
+							platform={key}
+						/>
 					);
-					break;
+
 				case 'facebook':
-					item = `${FACEBOOK_URL}${socialmediaitem[key]}`;
 					return (
-						<a href={item} target='_blank' rel='noreferrer'>
-							<img
-								src={facebookIcon}
-								alt='Twitter'
-								width='30px'
-							/>
-						</a>
+						<SocialMediaItem
+							key={generateKey()}
+							url={`${FACEBOOK_URL}${socialmediaitem[key]}`}
+							icon={facebookIcon}
+							platform={key}
+						/>
 					);
-					break;
+
 				case 'youtube':
-					item = `${YOUTUBE_URL}${socialmediaitem[key]}`;
 					return (
-						<a href={item} target='_blank' rel='noreferrer'>
-							<img src={youtubeIcon} alt='Twitter' />
-						</a>
+						<SocialMediaItem
+							key={generateKey()}
+							url={`${YOUTUBE_URL}${socialmediaitem[key]}`}
+							icon={youtubeIcon}
+							platform={key}
+						/>
 					);
-					break;
+
 				case 'topcourt':
-					item = `${TOP_COURT_URL}${socialmediaitem[key]}`;
 					return (
-						<a href={item} target='_blank' rel='noreferrer'>
-							<img
-								src={topcourtIcon}
-								alt='Official Site'
-								height='28px'
-							/>
-						</a>
+						<SocialMediaItem
+							key={generateKey()}
+							url={`${TOP_COURT_URL}${socialmediaitem[key]}`}
+							icon={topcourtIcon}
+							platform={key}
+						/>
 					);
-					break;
+
 				case 'web':
-					item = `${socialmediaitem[key]}`;
 					return (
-						<a href={item} target='_blank' rel='noreferrer'>
-							<img
-								src={webIcon}
-								alt='Official Site'
-								width='28px'
-							/>
-						</a>
+						<SocialMediaItem
+							key={generateKey()}
+							url={socialmediaitem[key]}
+							icon={webIcon}
+							platform={key}
+						/>
 					);
-					break;
+
 				default:
-					return item;
+					return null;
 			}
 		}
 	}
-	return <div>{item}</div>;
+	return null;
 };
 
-export default SocialMediaItem;
+export default SocialMedia;

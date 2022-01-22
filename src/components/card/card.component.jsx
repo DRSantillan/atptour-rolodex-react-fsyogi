@@ -4,7 +4,8 @@ import SocialMediaList from '../social-media-list/social-media-list.component';
 
 const Card = props => {
 	const {
-		name,
+		firstName,
+		lastName,
 		image,
 		country,
 		countryimage,
@@ -17,82 +18,86 @@ const Card = props => {
 		height,
 		coach,
 		turnedpro,
+		plays,
 	} = props.player;
-	const capitalize = word => {
-		return word.charAt(0).toUpperCase() + word.slice(1);
-	};
-	const displaySocialMedia = socialMedia => {
-		const TOP_COURT_URL = 'https://www.topcourt.com/p/';
-		const INSTAGRAM_URL = 'https://www.instagram.com/';
-		const FACEBOOK_URL = 'https://www.facebook.com/';
-		const TWITTER_URL = 'https://twitter.com/';
-		const YOUTUBE_URL = 'https://www.youtube.com/';
-		// eslint-disable-next-line array-callback-return
-		return socialMedia.map(item => {
-			for (let key in item) {
-				if (item[key] !== null) {
-					if (key === 'topcourt') {
-						return (
-							<div>
-								{capitalize(key)}: {TOP_COURT_URL}
-								{item[key]}
-							</div>
-						);
-					} else if (key === 'instagram') {
-						return (
-							<div>
-								{capitalize(key)}: {INSTAGRAM_URL}
-								{item[key]}
-							</div>
-						);
-					} else if (key === 'twitter') {
-						return (
-							<div>
-								{capitalize(key)}: {TWITTER_URL}
-								{item[key]}
-							</div>
-						);
-					} else if (key === 'facebook') {
-						return (
-							<div>
-								{capitalize(key)}: {FACEBOOK_URL}
-								{item[key]}
-							</div>
-						);
-					} else if (key === 'web') {
-						return (
-							<div>
-								{capitalize(key)}: {item[key]}
-							</div>
-						);
-					} else if (key === 'youtube') {
-						return (
-							<div>
-								{capitalize(key)}: {YOUTUBE_URL}
-								{item[key]}
-							</div>
-						);
-					}
-				}
-			}
-		});
-	};
+
 	return (
-		<div className='card-container'>
-			<h1>{name}</h1>
-			<img src={`/images/${image}`} alt='' width='250px' />
-			<img src={`/images/${countryimage}`} alt='' width='100px' />
-			<div>{country}</div>
-			<div>Rank: {rank}</div>
-			<div>Points: {points}</div>
-			<div>Age: {turnedpro}</div>
-			<div>Birth Date: {birthdate}</div>
-			<div>Age: {age}</div>
-			<div>Weight: {weight}kg</div>
-			<div>Height: {height}cm</div>
-			<div>Coach: {coach.join(', ')}</div>
+		<div className='card'>
+			<div className='player-name-container'>
+				<div className='player-first-name'>{firstName}</div>
+				<div className='player-last-name'>{lastName}</div>
+			</div>
+			<div className='player-ranking'>
+				<div className='player-ranking-text'>
+					<span>Singles</span>
+					<span className='larger'>Ranking</span>
+				</div>
+				<div className='player-ranking-number'>{rank}</div>
+				<div className='player-ranking-flag'>
+					<img src={`/images/${countryimage}`} alt='' />
+				</div>
+				<div className='player-ranking-country'>
+					<span>{country}</span>
+				</div>
+			</div>
 			<div>
 				<SocialMediaList socialmedia={socialmedia} />
+			</div>
+			<div className='player-image-container'>
+				<img src={`/images/${image}`} alt='' width='250px' />
+			</div>
+			<div className='player-bio-container'>
+				<div className='player-bio'>
+					<div className='player-bio-label'>Age</div>
+					<div className='player-bio-content'>
+						<div>
+							{age}
+							<span className='smaller'>({birthdate})</span>
+						</div>
+					</div>
+				</div>
+				<div className='player-bio'>
+					<div className='player-bio-label'>Turned Pro</div>
+					<div className='player-bio-content'>{turnedpro}</div>
+				</div>
+				<div className='player-bio'>
+					<div className='player-bio-label'>Weight</div>
+					<div className='player-bio-content'>
+						<div className='content'>
+							{weight}lbs
+							<span className='smaller'>({weight}kg)</span>
+						</div>
+					</div>
+				</div>
+				<div className='player-bio'>
+					<div className='player-bio-label'>Height</div>
+					<div className='player-bio-content'>
+						<div className='content'>
+							{height}
+							<div className='smaller'>({height}cm)</div>
+						</div>
+					</div>
+				</div>
+				<div className='player-bio'>
+					<div className='player-bio-label'>Birthplace</div>
+					<div className='player-bio-content medium'>
+						Belgrade, Serbia
+					</div>
+				</div>
+				<div className='player-bio'>
+					<div className='player-bio-label'>Plays</div>
+					<div className='player-bio-content medium'>{plays}</div>
+				</div>
+				<div className='player-bio '>
+					<div className='player-bio-label'>Coach</div>
+					<div className='player-bio-content medium '>
+						{coach.join(', ')}
+					</div>
+				</div>
+				<div className='player-bio '>
+					<div className='player-bio-label'>Points</div>
+					<div className='player-bio-content medium '>{points}</div>
+				</div>
 			</div>
 		</div>
 	);

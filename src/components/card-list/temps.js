@@ -95,3 +95,19 @@ const displaySocialMedia = socialMedia => {
 			}
 		});
 	};
+
+
+
+
+	const TOP_COURT_URL = 'https://www.topcourt.com/p/';
+	const INSTAGRAM_URL = 'https://www.instagram.com/';
+	const FACEBOOK_URL = 'https://www.facebook.com/';
+	const TWITTER_URL = 'https://twitter.com/';
+	const YOUTUBE_URL = 'https://www.youtube.com/';
+
+	import facebookIcon from '../../assets/icons/facebook.png';
+	import webIcon from '../../assets/icons/web.png';
+	import twitterIcon from '../../assets/icons/twitter.png';
+	import youtubeIcon from '../../assets/icons/youtube.png';
+	import instagramIcon from '../../assets/icons/instagram.png';
+	import topcourtIcon from '../../assets/icons/topcourt-logo.svg';

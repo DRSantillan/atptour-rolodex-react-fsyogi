@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CardList from './components/card-list/card-list.component';
 import { players } from './db/players.db';
 import './App.css';
+import {generateKey} from './util/utilities'
 
 class App extends Component {
 	constructor() {
