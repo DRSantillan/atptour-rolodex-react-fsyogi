@@ -1,6 +1,9 @@
 import React from 'react';
 import './card.styles.scss';
 import SocialMediaList from '../social-media-list/social-media-list.component';
+import TitleText from '../title/title-text.component';
+import ImageContainer from '../image-container/image-container.component';
+import TextLabel from '../label/label.component';
 
 const Card = props => {
 	const {
@@ -11,6 +14,7 @@ const Card = props => {
 		countryimage,
 		age,
 		birthdate,
+		birthplace,
 		rank,
 		points,
 		socialmedia,
@@ -32,16 +36,13 @@ const Card = props => {
 
 	return (
 		<div className='card'>
-			<div className='player-name-container'>
-				<div className='player-first-name'>{firstName}</div>
-				<div className='player-last-name'>{lastName}</div>
-			</div>
+			<TitleText text={[firstName, lastName]} />
 			<div className='player-ranking'>
 				<div className='player-ranking-text'>
 					<span>Singles</span>
 					<span className='larger'>Ranking</span>
 				</div>
-				<div className='player-ranking-number'>{rank}</div>
+				<TextLabel cssClass={'player-ranking-number'} text={rank} />
 				<div className='player-ranking-flag'>
 					<img src={`/images/${countryimage}`} alt='' />
 				</div>
@@ -49,15 +50,11 @@ const Card = props => {
 					<span>{country}</span>
 				</div>
 			</div>
-			<div>
-				<SocialMediaList socialmedia={socialmedia} />
-			</div>
-			<div className='player-image-container'>
-				<img src={`/images/${image}`} alt='' width='250px' />
-			</div>
+			<SocialMediaList socialmedia={socialmedia} />
+			<ImageContainer image={image} />
 			<div className='player-bio-container'>
-				<div className='player-bio gradient'>
-					<div className='player-bio-label'>Age</div>
+				<div className='player-bio'>
+					<TextLabel cssClass={'player-bio-label'} text={'Age'} />
 					<div className='player-bio-content'>
 						<div>
 							{age}
@@ -66,20 +63,26 @@ const Card = props => {
 					</div>
 				</div>
 				<div className='player-bio'>
-					<div className='player-bio-label'>Turned Pro</div>
-					<div className='player-bio-content'>{turnedpro}</div>
+					<TextLabel
+						cssClass={'player-bio-label'}
+						text={'Turned Pro'}
+					/>
+					<TextLabel
+						cssClass={'player-bio-content'}
+						text={turnedpro}
+					/>
 				</div>
 				<div className='player-bio'>
-					<div className='player-bio-label'>Weight</div>
+					<TextLabel cssClass={'player-bio-label'} text={'Weight'} />
 					<div className='player-bio-content'>
 						<div className='content'>
-							{weight}lbs
+							{weightInPounds}lbs
 							<span className='smaller'>({weight}kg)</span>
 						</div>
 					</div>
 				</div>
 				<div className='player-bio'>
-					<div className='player-bio-label'>Height</div>
+					<TextLabel cssClass={'player-bio-label'} text={'Height'} />
 					<div className='player-bio-content'>
 						<div className='content'>
 							{heightInFeetAndInches(height)}
@@ -88,24 +91,35 @@ const Card = props => {
 					</div>
 				</div>
 				<div className='player-bio'>
-					<div className='player-bio-label'>Birthplace</div>
-					<div className='player-bio-content medium'>
-						Belgrade, Serbia
-					</div>
+					<TextLabel
+						cssClass={'player-bio-label'}
+						text={'Birthplace'}
+					/>
+					<TextLabel
+						cssClass={'player-bio-content medium'}
+						text={birthplace}
+					/>
 				</div>
 				<div className='player-bio'>
-					<div className='player-bio-label'>Plays</div>
-					<div className='player-bio-content medium'>{plays}</div>
+					<TextLabel cssClass={'player-bio-label'} text={'Plays'} />
+					<TextLabel
+						cssClass={'player-bio-content medium'}
+						text={plays}
+					/>
 				</div>
 				<div className='player-bio '>
-					<div className='player-bio-label'>Coach</div>
-					<div className='player-bio-content medium '>
-						{coach.join(', ')}
-					</div>
+					<TextLabel cssClass={'player-bio-label'} text={'Coach'} />
+					<TextLabel
+						cssClass={'player-bio-content medium'}
+						text={coach.join(', ')}
+					/>
 				</div>
 				<div className='player-bio '>
-					<div className='player-bio-label'>Points</div>
-					<div className='player-bio-content medium '>{points}</div>
+					<TextLabel cssClass={'player-bio-label'} text={'Points'} />
+					<TextLabel
+						cssClass={'player-bio-content medium'}
+						text={points}
+					/>
 				</div>
 			</div>
 		</div>
