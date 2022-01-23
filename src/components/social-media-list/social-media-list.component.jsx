@@ -5,6 +5,7 @@ import { generateKey } from '../../util/utilities';
 import './social-media-list.styles.scss';
 
 const SocialMediaList = ({ socialmedia }) => {
+	
 	return (
 		<div className='social-media-container'>
 			<div className='social-media'>

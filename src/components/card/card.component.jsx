@@ -41,13 +41,15 @@ const Card = props => {
 				</div>
 			</div>
 			<div>
-				<SocialMediaList socialmedia={socialmedia} />
+				<SocialMediaList
+					socialmedia={socialmedia}
+				/>
 			</div>
 			<div className='player-image-container'>
 				<img src={`/images/${image}`} alt='' width='250px' />
 			</div>
 			<div className='player-bio-container'>
-				<div className='player-bio'>
+				<div className='player-bio gradient'>
 					<div className='player-bio-label'>Age</div>
 					<div className='player-bio-content'>
 						<div>

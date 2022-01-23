@@ -4,7 +4,7 @@ import webIcon from '../../assets/icons/web.png';
 import twitterIcon from '../../assets/icons/twitter.png';
 import youtubeIcon from '../../assets/icons/youtube.png';
 import instagramIcon from '../../assets/icons/instagram.png';
-import topcourtIcon from '../../assets/icons/topcourt-logo.svg';
+import topcourtIcon from '../../assets/icons/topcourt.png';
 import SocialMediaItem from './social-media-item.component';
 
 import { generateKey } from '../../util/utilities';
@@ -14,7 +14,8 @@ const FACEBOOK_URL = 'https://www.facebook.com/';
 const TWITTER_URL = 'https://twitter.com/';
 const YOUTUBE_URL = 'https://www.youtube.com/';
 
-const SocialMedia = ({ socialmediaitem }) => {
+const SocialMedia = ({ socialmediaitem  }) => {
+	
 	for (let key in socialmediaitem) {
 		if (socialmediaitem[key] !== null) {
 			switch (key) {
@@ -25,6 +26,7 @@ const SocialMedia = ({ socialmediaitem }) => {
 							url={`${INSTAGRAM_URL}${socialmediaitem[key]}`}
 							icon={instagramIcon}
 							platform={key}
+							
 						/>
 					);
 
