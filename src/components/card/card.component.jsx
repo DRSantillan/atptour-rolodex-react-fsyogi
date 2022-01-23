@@ -21,6 +21,15 @@ const Card = props => {
 		plays,
 	} = props.player;
 
+	const weightInPounds = Math.round(weight * 2.20462);
+
+	const heightInFeetAndInches = height => {
+		const feet = Math.floor(height / 2.54 / 12);
+		const inches = Math.floor(height / 2.54 - 12 * feet);
+		const heightTotal = `${feet}'${inches}"`;
+		return heightTotal;
+	};
+
 	return (
 		<div className='card'>
 			<div className='player-name-container'>
@@ -41,9 +50,7 @@ const Card = props => {
 				</div>
 			</div>
 			<div>
-				<SocialMediaList
-					socialmedia={socialmedia}
-				/>
+				<SocialMediaList socialmedia={socialmedia} />
 			</div>
 			<div className='player-image-container'>
 				<img src={`/images/${image}`} alt='' width='250px' />
@@ -75,7 +82,7 @@ const Card = props => {
 					<div className='player-bio-label'>Height</div>
 					<div className='player-bio-content'>
 						<div className='content'>
-							{height}
+							{heightInFeetAndInches(height)}
 							<div className='smaller'>({height}cm)</div>
 						</div>
 					</div>

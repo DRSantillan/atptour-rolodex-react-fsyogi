@@ -47,7 +47,7 @@ export const players = [
 			{ topcourt: null },
 		],
 		weight: 83,
-		height: 19,
+		height: 198,
 		coach: ['Gilles Cervara'],
 		turnedpro: 2014,
 	},

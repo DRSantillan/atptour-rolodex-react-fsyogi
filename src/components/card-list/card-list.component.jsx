@@ -7,9 +7,9 @@ const CardList = ({ players }) => {
 
 	return (
 		<div className='card-list'>
-			{players.map(player => (
+			{ players.length > 0 ? players.map(player => (
 				<Card key={generateKey()} player={player} />
-			))}
+			)) : ( <div className='noplayers'>No Players Found... Search Again!</div>)}
 		</div>
 	);
 };

@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Search from '../search/search.component';
+import SearchBox from '../search/search-box.component';
 import './header.styles.scss';
 
 const Header = ({ handleChange }) => {
     
 	return (
 		<div className='header'>
-			<h1>ATP World Tour - Players Rolodex</h1>
-			<Search handleChange={handleChange} />
+			<h1>ATP WORLD TOUR PLAYERS</h1>
+			<SearchBox handleChange={handleChange} />
 		</div>
 	);
 };
